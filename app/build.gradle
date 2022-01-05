@@ -20,6 +20,9 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            // 環境変数を参照するため、ビルド前に事前に設定が必須
+            manifestPlaceholders = [api_key: System.getenv("APIKEY")]
         }
     }
     compileOptions {
